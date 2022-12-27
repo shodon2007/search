@@ -4,31 +4,52 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Roboto;
+}
+
+body {
+    background-color: #5182FF;
 }
 
 .body {
+    display: flex;
+    flex-direction: column;
     padding: 15px 0;
     width: 1200px;
     margin: 0 auto;
+    height: 100vh;
 }
 
 .search {
-    font-family: Roboto;
-    background-color: black;
     width: 100%;
     border: 0;
     outline: 0;
     text-align: center;
     color: white;
+    background-color: #5182FF;
+    border: 1px solid white;
+    border-radius: 30px;
     padding: 20px 0;
     font-size: 30px;
 }
 
 
 .word-list {
+    overflow: scroll;
+    border: 1px solid white;
+    background-color: #5182FF;
+    border-radius: 30px;
     margin-top: 15px;
     padding: 30px;
     width: 100%;
-    background-color: black;
     color: white;
+    font-size: 30px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+
+}
+
+*::-webkit-scrollbar {
+    width: 0;
 }
