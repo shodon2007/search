@@ -30,13 +30,13 @@ words.forEach(word => wordList.innerHTML += `<div class='word'>${word}</div>`)
 search.addEventListener('keyup', () => {
     wordList.innerHTML = '';
     words.forEach((word) => {
-        let searchWord = word.indexOf(search.value);
+        let searchWord = word.indexOf(search.value.toLowerCase());
         if (searchWord != -1) {
             wordList.innerHTML +=
                 `
-            <div class="word"><span> ${word.slice(0, searchWord)}</span><span style='background-color:white; color:#5182FF'>${search.value}</span><span>${word.slice(searchWord + search.value.length)}</span></div>
+            <div class="word"><span> ${word.slice(0, searchWord)}</span><span style='background-color:white; color:#5182FF'>${search.value.toLowerCase()}</span><span>${word.slice(searchWord + search.value.length)}</span></div>
             `;
-        } else if (search.value == '') {
+        } else if (search.value.toLowerCase() == '') {
             wordList.innerHTML += `<div class='word'>${word}</div>`;
         }
     });
