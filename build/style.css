@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto;
+}
+
+body {
+    background-color: #5182FF;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+    width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+.search {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    color: white;
+    background-color: #5182FF;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.searched {
+    background-color: white;
+    color: #5182FF;
+}
+
+.word-list {
+    overflow: scroll;
+    border: 1px solid white;
+    background-color: #5182FF;
+    border-radius: 30px;
+    margin-top: 15px;
+    padding: 30px;
+    width: 100%;
+    color: white;
+    font-size: 30px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+@media (max-width: 1200px) {
+    .body {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .word-list {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 200px) {
+    .word-list {
+        padding: 20px 10px;
+    }
+}
