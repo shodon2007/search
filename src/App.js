@@ -30,8 +30,8 @@ function App() {
   ]);
   const [newWords, setNewWords] = useState([...words]);
   const showList = () => {
-    setNewWords(words.filter(el => {
-      let searchWord = el.indexOf(search);
+    setNewWords(words.filter(word => {
+      let searchWord = word.indexOf(search);
       if (searchWord != -1) {
         return true;
       } else {
@@ -41,14 +41,24 @@ function App() {
   };
   return (
     <div className="App">
-      <input type='text' value={search} onChange={e => {
-        search = e.target.value;
-        setSearch(search);
-        showList();
-      }} />
+      <input
+        className="search"
+        type='text'
+        value={search}
+        onChange={e => {
+          search = e.target.value;
+          setSearch(search);
+          showList();
+        }} />
       <div className='word-list'>
         {
-          newWords.map(el => <div>{el}</div>)
+          newWords.map(word => {
+            let searchWord = word.indexOf(search);
+
+            return <div>
+              <span> {word.slice(0, searchWord)}</span><span className="searched">{search.toLowerCase()}</span><span>{word.slice(searchWord + search.length)}</span>
+            </div>
+          })
         }
       </div>
     </div>
