@@ -28,34 +28,28 @@ function App() {
     'together', 'training', 'understand', 'usually', 'warning', 'website',
     'whether', 'window', 'withdrawal', 'young', 'supermarket', 'girl',
   ]);
-
-  const [newWords, setNewWords] = useState([...words])
-
-  function showList() {
-    setWords(words.map((el) => {
-      let searchWord = el.indexOf(search.toLowerCase());
-      if (searchWord != -1 || search == '') {
+  const [newWords, setNewWords] = useState([...words]);
+  const showList = () => {
+    setNewWords(words.filter(el => {
+      let searchWord = el.indexOf(search);
+      if (searchWord != -1) {
         return true;
+      } else {
+        return false;
       }
-      return false;
-    }))
-  }
-
+    }));
+  };
   return (
     <div className="App">
-      <input value={search} onChange={e => {
-        setSearch(e.target.value);
-        showList()
+      <input type='text' value={search} onChange={e => {
+        search = e.target.value;
+        setSearch(search);
+        showList();
       }} />
       <div className='word-list'>
-        {newWords.map((word) => {
-          let searchWord = word.indexOf(search.toLowerCase());
-          if (searchWord != -1) {
-            return <div className="word">
-              <span>{word.slice(0, searchWord)}</span><b>{search}</b><span>{word.slice(searchWord + search.length)}</span>
-            </div>;
-          }
-        })}
+        {
+          newWords.map(el => <div>{el}</div>)
+        }
       </div>
     </div>
   );
