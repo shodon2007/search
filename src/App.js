@@ -32,7 +32,6 @@ function App() {
   const showList = () => {
     setNewWords(words.filter(word => {
       let searchWord = word.indexOf(search.toLowerCase());
-      searchWord = searchWord.toLowerCase();
       if (searchWord != -1) {
         return true;
       } else {
@@ -55,7 +54,6 @@ function App() {
         {
           newWords.map(word => {
             let searchWord = word.indexOf(search.toLowerCase());
-            searchWord = searchWord.toLowerCase();
             return <div>
               <span> {word.slice(0, searchWord)}</span><span className="searched">{search.toLowerCase()}</span><span>{word.slice(searchWord + search.length)}</span>
             </div>
