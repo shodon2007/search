@@ -7,11 +7,15 @@
     font-family: Roboto;
 }
 
+*::-webkit-scrollbar {
+    width: 0;
+}
+
 body {
     background-color: #5182FF;
 }
 
-.App {
+.app {
     display: flex;
     flex-direction: column;
     padding: 15px 0;
@@ -26,22 +30,20 @@ body {
     outline: 0;
     text-align: center;
     color: white;
-    background-color: #5182FF;
+    background-color: transparent;
     border: 1px solid white;
     border-radius: 30px;
     padding: 20px 0;
     font-size: 30px;
 }
 
-.searched {
-    background-color: white;
-    color: #5182FF;
+.search::placeholder {
+    color: rgba(255, 255, 255, 0.3);
 }
 
-.word-list {
+.words {
     overflow: scroll;
     border: 1px solid white;
-    background-color: #5182FF;
     border-radius: 30px;
     margin-top: 15px;
     padding: 30px;
@@ -52,25 +54,28 @@ body {
     -ms-overflow-style: none;
 }
 
-*::-webkit-scrollbar {
-    width: 0;
+.words>div>span {
+    background-color: white;
+    color: #5182FF;
 }
 
+
+
 @media (max-width: 1200px) {
-    .App {
+    .app {
         width: 100%;
         padding: 15px;
     }
 }
 
 @media (max-width: 600px) {
-    .word-list {
+    .words {
         font-size: 20px;
     }
 }
 
 @media (max-width: 200px) {
-    .word-list {
+    .words {
         padding: 20px 10px;
     }
 }
